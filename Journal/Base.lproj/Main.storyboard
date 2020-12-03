@@ -37,6 +37,7 @@
                                 <state key="normal" title="Sign In"/>
                                 <connections>
                                     <action selector="handleSignIn" destination="BYZ-38-t0r" eventType="touchUpInside" id="fwE-VY-WL4"/>
+                                    <segue destination="j23-bL-swx" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="nVQ-6N-AiO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJI-gP-dZX">
@@ -45,6 +46,7 @@
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
                                     <action selector="handleSignUp" destination="BYZ-38-t0r" eventType="touchUpInside" id="YcL-l9-aur"/>
+                                    <segue destination="j23-bL-swx" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="ZZ9-Ft-Ap2"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cbR-s8-vR7">
@@ -64,9 +66,54 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="67.663043478260875"/>
+            <point key="canvasLocation" x="-191.30434782608697" y="67.663043478260875"/>
+        </scene>
+        <!--Calendar View Controller-->
+        <scene sceneID="3o7-ZF-OUl">
+            <objects>
+                <viewController id="j23-bL-swx" customClass="CalendarViewController" customModule="Journal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="R8V-py-zrH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pXX-MF-bxb" customClass="FSCalendar">
+                                <rect key="frame" x="20" y="126" width="374" height="247"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6va-ez-oUg">
+                                <rect key="frame" x="171.66666666666666" y="398" width="71" height="30"/>
+                                <state key="normal" title="New Entry"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GB2-fq-ccb">
+                                <rect key="frame" x="178" y="435" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sign Out"/>
+                                <connections>
+                                    <action selector="signout" destination="j23-bL-swx" eventType="touchUpInside" id="qXo-t0-vyi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="v0G-yM-v4b"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="pXX-MF-bxb" secondAttribute="bottom" constant="363" id="5ei-vP-bVC"/>
+                            <constraint firstItem="pXX-MF-bxb" firstAttribute="trailing" secondItem="R8V-py-zrH" secondAttribute="trailingMargin" id="9wn-vR-4aP"/>
+                            <constraint firstItem="pXX-MF-bxb" firstAttribute="top" secondItem="v0G-yM-v4b" secondAttribute="top" constant="126" id="CKz-pe-b1V"/>
+                            <constraint firstItem="6va-ez-oUg" firstAttribute="top" secondItem="pXX-MF-bxb" secondAttribute="bottom" constant="25" id="JVD-if-eNc"/>
+                            <constraint firstItem="pXX-MF-bxb" firstAttribute="centerX" secondItem="6va-ez-oUg" secondAttribute="centerX" id="MZn-rk-eBD"/>
+                            <constraint firstItem="pXX-MF-bxb" firstAttribute="leading" secondItem="R8V-py-zrH" secondAttribute="leadingMargin" id="rwd-b6-v9n"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ePr-0z-5Xb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2MK-lB-Qgn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="629" y="68"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZZ9-Ft-Ap2"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

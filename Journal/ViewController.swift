@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
+//    var users = [{"users":"password"}]
     
     override func viewDidLoad() {
         super.viewDidLoad()

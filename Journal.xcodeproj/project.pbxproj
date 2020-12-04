@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		175988082578B11E00B6FC06 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175988072578B11E00B6FC06 /* CalendarViewController.swift */; };
+		175E990B257967BA000BB038 /* AddJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175E990A257967BA000BB038 /* AddJournalViewController.swift */; };
 		1786AED625782CBE00E6E776 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1786AED525782CBE00E6E776 /* AppDelegate.swift */; };
 		1786AED825782CBE00E6E776 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1786AED725782CBE00E6E776 /* SceneDelegate.swift */; };
 		1786AEDA25782CBE00E6E776 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1786AED925782CBE00E6E776 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		175988072578B11E00B6FC06 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		175E990A257967BA000BB038 /* AddJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalViewController.swift; sourceTree = "<group>"; };
 		1786AED225782CBE00E6E776 /* Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1786AED525782CBE00E6E776 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1786AED725782CBE00E6E776 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				1786AEDE25782CC100E6E776 /* Assets.xcassets */,
 				1786AEE025782CC100E6E776 /* LaunchScreen.storyboard */,
 				1786AEE325782CC100E6E776 /* Info.plist */,
+				175E990A257967BA000BB038 /* AddJournalViewController.swift */,
 			);
 			path = Journal;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				1786AEDA25782CBE00E6E776 /* ViewController.swift in Sources */,
 				1786AED625782CBE00E6E776 /* AppDelegate.swift in Sources */,
 				1786AED825782CBE00E6E776 /* SceneDelegate.swift in Sources */,
+				175E990B257967BA000BB038 /* AddJournalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,23 +27,27 @@ class ViewController: UIViewController {
             
             alert.addAction(action)
             present(alert, animated: true, completion: nil)
-            return false;
+            return false
         }
-        return true;
+        return true
     }
     
     @IBAction func handleSignIn () {
         if checkFields() {
-            print("Contents of the username: \(username.text!)")
+            username.text = ""
+            password.text = ""
+//            print("Contents of the username: \(username.text!)")
             
-            print("Contents of the password: \(password.text!)")
+//            print("Contents of the password: \(password.text!)")
         }
     }
     @IBAction func handleSignUp () {
         if checkFields() {
-            print("Contents of the username: \(username.text!)")
+            username.text = ""
+            password.text = ""
+//            print("Contents of the username: \(username.text!)")
             
-            print("Contents of the password: \(password.text!)")
+//            print("Contents of the password: \(password.text!)")
         }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  CalendarViewController.swift
+//  AddJournalViewController.swift
 //  Journal
 //
 //  Created by Suchwinder Singh on 12/3/20.
@@ -7,31 +7,20 @@
 
 import UIKit
 
-class CalendarViewController: UIViewController {
-    var currentMood: String!
-    var currentDate: String!
-    var moodsDict: [String: String] = [:]
-
-    @IBOutlet weak var moodLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    
-    
-    func updateLabel () {
-        moodLabel.text = currentMood
-        dateLabel.text = currentDate
-    }
+class AddJournalViewController: UIViewController {
+    @IBOutlet weak var inputLabel: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentMood = "test"
-        currentDate = "MM-dd-YYYY"
-        updateLabel()
+
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func signout () {
+    @IBAction func close() {
+        inputLabel.text = ""
         dismiss(animated:true, completion: nil)
     }
+    
 
     /*
     // MARK: - Navigation

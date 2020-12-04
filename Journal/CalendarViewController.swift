@@ -24,11 +24,11 @@ class CalendarViewController: UIViewController, FSCalendarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
         currentMood = "N/A"
         currentDate = "MM-dd-YYYY"
         updateLabel()
         calendar.delegate = self
-        // Do any additional setup after loading the view.
     }
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {

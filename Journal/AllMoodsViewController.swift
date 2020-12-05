@@ -8,9 +8,31 @@
 import UIKit
 
 class AllMoodsViewController: UITableViewController {
-
+//    var moodsDict: [String: String] = [:]
+    var moodsArr = [MoodItem]()
+    
     override func viewDidLoad() {
+//        moodsDict["10-10-20"] = "Happy"
+//        moodsDict["10-11-20"] = "Chill"
+//        moodsDict["10-12-20"] = "Focused"
+//
+//        let item1 = MoodItem()
+//        item1.date = "10-10-20"
+//        item1.mood = "Happy"
+//        moodsArr.append(item1)
+//        let item2 = MoodItem()
+//        item2.date = "10-11-20"
+//        item2.mood = "Chill"
+//        moodsArr.append(item2)
+//        let item3 = MoodItem()
+//        item3.date = "10-12-20"
+//        item3.mood = "Focused"
+//        moodsArr.append(item3)
+        
+
         super.viewDidLoad()
+        
+        moodsArr = PersistencyHelper.loadMoodItems()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -18,25 +40,59 @@ class AllMoodsViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    /*
+     Noes:
+     1. Delete a mood on a day might want to not allow
+     2. Edit a mood on a day - to get rid of a requirement of making a delegate i believe
+     3. Adding a mood on a specifc day may not be possible
+     */
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
+    // MARK:- Table view render
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return moodsArr.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->
     UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DateMoodItem",
                                                  for: indexPath)
+        
+        let mood = moodsArr[indexPath.row]
+        
+        let nameLabel = cell.viewWithTag(1000) as! UILabel
+        let scoreLabel = cell.viewWithTag(2000) as! UILabel
+        
+        nameLabel.text = mood.date
+        scoreLabel.text = mood.mood
+        
+          // End of new code block
         return cell
     }
-
+    
+    // MARK:- Table View Delegate
+    // at this moment not used, it is for deselecting a row
+    // this is a delegate method
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+//    }
+//
+    // to delete contents, not implemented or will be used, there for future purposes potentially
+//    override func tableView(
+//        _ tableView: UITableView,
+//        commit editingStyle: UITableViewCell.EditingStyle,
+//        forRowAt indexPath: IndexPath) {
+//        moodsArr.remove(at: indexPath.row)
+//        let indexPaths = [indexPath]
+//        tableView.deleteRows(at: indexPaths, with: .automatic)
+//    }
+//    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

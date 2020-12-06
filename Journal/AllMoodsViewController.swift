@@ -68,14 +68,15 @@ class AllMoodsViewController: UITableViewController {
 //    }
 //
     // to delete contents, not implemented or will be used, there for future purposes potentially
-//    override func tableView(
-//        _ tableView: UITableView,
-//        commit editingStyle: UITableViewCell.EditingStyle,
-//        forRowAt indexPath: IndexPath) {
-//        moodsArr.remove(at: indexPath.row)
-//        let indexPaths = [indexPath]
-//        tableView.deleteRows(at: indexPaths, with: .automatic)
-//    }
+    override func tableView(
+        _ tableView: UITableView,
+        commit editingStyle: UITableViewCell.EditingStyle,
+        forRowAt indexPath: IndexPath) {
+        moodsArr.remove(at: indexPath.row)
+        PersistencyHelper.saveMoods(moodsArr)
+        let indexPaths = [indexPath]
+        tableView.deleteRows(at: indexPaths, with: .automatic)
+    }
 //
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -74,11 +74,8 @@ class AddJournalViewController: UIViewController {
         // sort for all moods table
         allMoods.sort{$0.date > $1.date}
         
+        // update file
         PersistencyHelper.saveMoods(allMoods)
-        
-        // Need to update dictionary as well
-        
-        
     }
     /*
      Notes:

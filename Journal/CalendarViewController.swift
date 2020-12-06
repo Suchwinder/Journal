@@ -37,6 +37,12 @@ class CalendarViewController: UIViewController, FSCalendarDelegate {
         calendar.delegate = self // assign the delegate to self
     }
     
+    // MARK:- Reset date selection
+    @IBAction func todaymood(_ sender: Any) {
+        currentMood="N/A"
+        currentDate="MM-dd-YYYY"
+        updateLabel()
+    }
     
     // MARK:- Calendar Functionality
     

@@ -7,8 +7,10 @@
 
 import Foundation
 
+// refer to Bullseye app, this wasn't explained in debt
 class PersistencyHelper {
   
+  // update our file with a new array of contents
   static func saveMoods(_ items: [MoodItem]) {
     let encoder = PropertyListEncoder()
     do {
@@ -19,6 +21,7 @@ class PersistencyHelper {
     }
   }
   
+  // Need to load data from a file
   static func loadMoodItems() -> [MoodItem] {
     var items = [MoodItem]()
     let path = dataFilePath()
@@ -33,6 +36,8 @@ class PersistencyHelper {
     return items
   }
   
+  // based on inference it seems to be creating some file to store the contents there
+  // not too sure where it in the directory it is located
   static func dataFilePath() -> URL {
     let paths = FileManager.default.urls(for: .documentDirectory,
                                           in: .userDomainMask)

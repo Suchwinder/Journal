@@ -8,30 +8,14 @@
 import UIKit
 
 class AllMoodsViewController: UITableViewController {
-//    var moodsDict: [String: String] = [:]
+    // our source to refer to all the moods created by a user
     var moodsArr = [MoodItem]()
     
     override func viewDidLoad() {
-//        moodsDict["10-10-20"] = "Happy"
-//        moodsDict["10-11-20"] = "Chill"
-//        moodsDict["10-12-20"] = "Focused"
-//
-//        let item1 = MoodItem()
-//        item1.date = "10-10-20"
-//        item1.mood = "Happy"
-//        moodsArr.append(item1)
-//        let item2 = MoodItem()
-//        item2.date = "10-11-20"
-//        item2.mood = "Chill"
-//        moodsArr.append(item2)
-//        let item3 = MoodItem()
-//        item3.date = "10-12-20"
-//        item3.mood = "Focused"
-//        moodsArr.append(item3)
-        
-
         super.viewDidLoad()
         
+        // This was a helper function assigned to load date from a file
+        // refer to PersistencyHelper.swift
         moodsArr = PersistencyHelper.loadMoodItems()
 
         // Uncomment the following line to preserve selection between presentations
@@ -42,7 +26,7 @@ class AllMoodsViewController: UITableViewController {
     }
     
     /*
-     Noes:
+     Notes:
      1. Delete a mood on a day might want to not allow
      2. Edit a mood on a day - to get rid of a requirement of making a delegate i believe
      3. Adding a mood on a specifc day may not be possible
@@ -92,7 +76,7 @@ class AllMoodsViewController: UITableViewController {
 //        let indexPaths = [indexPath]
 //        tableView.deleteRows(at: indexPaths, with: .automatic)
 //    }
-//    
+//
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

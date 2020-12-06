@@ -28,6 +28,7 @@
                                 <state key="normal" title="Sign In"/>
                                 <connections>
                                     <action selector="handleSignIn" destination="BYZ-38-t0r" eventType="touchUpInside" id="fwE-VY-WL4"/>
+                                    <action selector="pulseButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DOx-rK-Xty"/>
                                     <segue destination="Gxh-ph-Yr0" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="nVQ-6N-AiO"/>
                                 </connections>
                             </button>
@@ -100,6 +101,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="myButton" destination="TH4-rM-W4K" id="DI8-UC-xuo"/>
                         <outlet property="password" destination="cbR-s8-vR7" id="LOs-ER-NrO"/>
                         <outlet property="username" destination="Uqu-gn-uXk" id="Geg-Sd-n3e"/>
                     </connections>
@@ -186,6 +188,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Today's Mood?"/>
                                 <connections>
+                                    <action selector="todaymood:" destination="j23-bL-swx" eventType="touchUpInside" id="8HG-HM-QkX"/>
                                     <segue destination="u72-Zl-6VZ" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="wif-6u-LZw"/>
                                 </connections>
                             </button>

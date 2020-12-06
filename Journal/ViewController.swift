@@ -46,24 +46,20 @@ class ViewController: UIViewController {
         return true
     }
     
+    // This is to satisfy the audio through AV
+    // https://developer.apple.com/documentation/avfoundation/avspeechsynthesizer
     @IBAction func handleSignIn () {
         if checkFields() {
             username.text = ""
             password.text = ""
-            // Line 1. Create an instance of AVSpeechSynthesizer.
-            let speechSynthesizer = AVSpeechSynthesizer()
-            // Line 2. Create an instance of AVSpeechUtterance and pass in a String to be spoken.
-            let speechUtterance: AVSpeechUtterance = AVSpeechUtterance(string: "Welcome to your Journal")
-            //Line 3. Specify the speech utterance rate. 1 = speaking extremely the higher the values the slower speech patterns. The default rate, AVSpeechUtteranceDefaultSpeechRate is 0.5
-            speechUtterance.rate = AVSpeechUtteranceMaximumSpeechRate / 1.8
-            // Line 4. Specify the voice. It is explicitly set to English here, but it will use the device default if not specified.
-            speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-            // Line 5. Pass in the urrerance to the synthesizer to actually speak.
-            speechSynthesizer.speak(speechUtterance)
-            dismiss(animated: true, completion: nil)
-//            print("Contents of the username: \(username.text!)")
             
-//            print("Contents of the password: \(password.text!)")
+            // https://nshipster.com/avspeechsynthesizer/
+            let speechSynthesizer = AVSpeechSynthesizer() // Object that will take in a speechUtterance object to speak
+            let speechUtterance: AVSpeechUtterance = AVSpeechUtterance(string: "Welcome to your Journal") // Speech Utterance object that had the phrase to speak
+            speechUtterance.rate = AVSpeechUtteranceMaximumSpeechRate / 1.8 // Can adjust speed, larger division number the slower it is
+            speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-US") // Ensure it is in US English
+            speechSynthesizer.speak(speechUtterance) // pass object to execute speech
+            dismiss(animated: true, completion: nil) // transition into next screen
         }
     }
     
@@ -71,9 +67,6 @@ class ViewController: UIViewController {
         if checkFields() {
             username.text = ""
             password.text = ""
-//            print("Contents of the username: \(username.text!)")
-            
-//            print("Contents of the password: \(password.text!)")
         }
     }
 }

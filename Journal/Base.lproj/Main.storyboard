@@ -129,6 +129,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8x-Zn-h21">
                                             <rect key="frame" x="20" y="11" width="188" height="22"/>
                                             <constraints>
+                                                <constraint firstAttribute="height" constant="22" id="URx-pp-vtD"/>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="188" id="sZU-0Z-gmx"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -139,6 +140,7 @@
                                             <rect key="frame" x="216" y="11" width="178" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="178" id="JrF-i5-deF"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="aOi-S9-rK3"/>
                                                 <constraint firstAttribute="height" constant="21" id="bJn-Uw-d5X"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -147,17 +149,19 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="SUD-p0-R53" firstAttribute="trailing" secondItem="M4l-ex-oc3" secondAttribute="trailingMargin" id="3La-Qu-KlD"/>
                                         <constraint firstItem="SUD-p0-R53" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Y8x-Zn-h21" secondAttribute="trailing" constant="8" symbolic="YES" id="4yk-EG-t86"/>
-                                        <constraint firstItem="Y8x-Zn-h21" firstAttribute="leading" secondItem="M4l-ex-oc3" secondAttribute="leadingMargin" id="5Dh-kA-lGi"/>
-                                        <constraint firstItem="SUD-p0-R53" firstAttribute="top" secondItem="M4l-ex-oc3" secondAttribute="topMargin" id="5Ki-gl-B4d"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="SUD-p0-R53" secondAttribute="trailing" constant="20" symbolic="YES" id="R3l-kp-sJo"/>
-                                        <constraint firstItem="Y8x-Zn-h21" firstAttribute="top" secondItem="M4l-ex-oc3" secondAttribute="topMargin" id="WdJ-xD-CAb"/>
-                                        <constraint firstItem="Y8x-Zn-h21" firstAttribute="leading" secondItem="M4l-ex-oc3" secondAttribute="leadingMargin" id="YzG-WA-rjd"/>
+                                        <constraint firstItem="SUD-p0-R53" firstAttribute="leading" secondItem="Y8x-Zn-h21" secondAttribute="trailing" constant="8" symbolic="YES" id="Bof-Sf-ePP"/>
                                         <constraint firstItem="Y8x-Zn-h21" firstAttribute="baseline" secondItem="SUD-p0-R53" secondAttribute="baseline" constant="1" id="atX-oO-JaX"/>
+                                        <constraint firstItem="Y8x-Zn-h21" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="M4l-ex-oc3" secondAttribute="leading" constant="20" symbolic="YES" id="cGC-EG-gyd"/>
+                                        <constraint firstItem="SUD-p0-R53" firstAttribute="trailing" secondItem="M4l-ex-oc3" secondAttribute="trailingMargin" id="ddv-hA-JJk"/>
+                                        <constraint firstItem="SUD-p0-R53" firstAttribute="top" secondItem="M4l-ex-oc3" secondAttribute="topMargin" id="fjI-CN-mWJ"/>
+                                        <constraint firstItem="SUD-p0-R53" firstAttribute="firstBaseline" secondItem="Y8x-Zn-h21" secondAttribute="firstBaseline" id="tvq-tq-ikB"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <accessibility key="accessibilityConfiguration" identifier="DateMoodItem"/>
+                                <connections>
+                                    <segue destination="d9F-xS-ou0" kind="show" id="19q-yE-CCq"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -171,32 +175,70 @@
             </objects>
             <point key="canvasLocation" x="628.98550724637687" y="-619.56521739130437"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Edit Mood-->
         <scene sceneID="Hq4-ny-0EC">
             <objects>
-                <tableViewController id="d9F-xS-ou0" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xad-JB-Z85">
+                <tableViewController id="d9F-xS-ou0" customClass="EditMoodViewController" customModule="Journal" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="xad-JB-Z85">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="40U-6c-PSA">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="40U-6c-PSA" id="fvY-ea-fzN">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="CO5-xD-9be">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="40U-6c-PSA">
+                                        <rect key="frame" x="0.0" y="18" width="414" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="40U-6c-PSA" id="fvY-ea-fzN">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Edit Mood" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IXd-bb-GAk">
+                                                    <rect key="frame" x="20" y="4" width="374" height="36"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <action selector="done" destination="d9F-xS-ou0" eventType="editingDidEndOnExit" id="wEW-hX-NMh"/>
+                                                        <outlet property="delegate" destination="d9F-xS-ou0" id="ZMe-E7-XnL"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="IXd-bb-GAk" firstAttribute="trailing" secondItem="fvY-ea-fzN" secondAttribute="trailingMargin" id="57P-sh-Yb6"/>
+                                                <constraint firstItem="IXd-bb-GAk" firstAttribute="top" secondItem="fvY-ea-fzN" secondAttribute="topMargin" constant="-7" id="YUk-v2-NRW"/>
+                                                <constraint firstItem="IXd-bb-GAk" firstAttribute="centerY" secondItem="fvY-ea-fzN" secondAttribute="centerY" id="jwI-A5-uLq"/>
+                                                <constraint firstItem="IXd-bb-GAk" firstAttribute="leading" secondItem="fvY-ea-fzN" secondAttribute="leadingMargin" id="tjm-x0-BiN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
                         <connections>
                             <outlet property="dataSource" destination="d9F-xS-ou0" id="Vic-ok-Hhs"/>
                             <outlet property="delegate" destination="d9F-xS-ou0" id="RNl-hH-Hyp"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Edit Mood" id="KeS-pt-Ht1">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="91n-TR-Qnd">
+                            <connections>
+                                <action selector="cancel" destination="d9F-xS-ou0" id="c4D-BW-GIO"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="onn-fT-SaF">
+                            <connections>
+                                <action selector="done" destination="d9F-xS-ou0" id="smE-Dd-W17"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="doneBarButton" destination="onn-fT-SaF" id="neP-C2-Q9d"/>
+                        <outlet property="textField" destination="IXd-bb-GAk" id="tn1-f8-wZR"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0oU-hg-eNQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1536" y="-620"/>
+            <point key="canvasLocation" x="1534.7826086956522" y="-620.38043478260875"/>
         </scene>
         <!--Journal-->
         <scene sceneID="3o7-ZF-OUl">

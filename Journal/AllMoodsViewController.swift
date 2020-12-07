@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AllMoodsViewController: UITableViewController {
+class AllMoodsViewController: UITableViewController, EditMoodViewControllerDelegate {
     // our source to refer to all the moods created by a user
     var moodsArr = [MoodItem]()
     
@@ -32,11 +32,11 @@ class AllMoodsViewController: UITableViewController {
      3. Adding a mood on a specifc day may not be possible
      */
 
-    // MARK: - Table view data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
+//    // MARK: - Table view data source
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 1
+//    }
     
     // MARK:- Table view render
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,13 +69,40 @@ class AllMoodsViewController: UITableViewController {
 //
     // to delete contents, not implemented or will be used, there for future purposes potentially
     override func tableView(
-        _ tableView: UITableView,
-        commit editingStyle: UITableViewCell.EditingStyle,
-        forRowAt indexPath: IndexPath) {
+        _ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath){
         moodsArr.remove(at: indexPath.row)
         PersistencyHelper.saveMoods(moodsArr)
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
+    }
+    
+    // MARK: - Navigation
+    // pass item into the next screen
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let controller = segue.destination as!EditMoodViewController
+        controller.delegate = self
+        if let indexPath = tableView.indexPath(for: sender as! UITableViewCell) {
+            controller.moodItem = moodsArr[indexPath.row]
+        }
+    }
+    
+    // MARK: - Done and Cancel
+    func editMoodViewControllerDidCancel(_ controller: EditMoodViewController) {
+        navigationController?.popViewController(animated:true)
+    }
+    
+    func editMoodViewController(_ controller: EditMoodViewController, didFinishEditing item: MoodItem) {
+        // persist the data change
+        
+        if let index = moodsArr.firstIndex(of: item) {
+            let indexPath = IndexPath(row: index, section: 0)
+            let indexPaths = [indexPath]
+            
+            tableView.reloadRows(at: indexPaths, with: .automatic)
+        }
+        
+        PersistencyHelper.saveMoods(moodsArr)
+        navigationController?.popViewController(animated:true)
     }
 //
     /*

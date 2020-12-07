@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import AVFoundation
+//import AVFoundation
 
 class ViewController: UIViewController {
     // IBOutlets that let you bind objects with the interface builder
@@ -53,13 +53,14 @@ class ViewController: UIViewController {
             username.text = ""
             password.text = ""
             
-            // https://nshipster.com/avspeechsynthesizer/
-            let speechSynthesizer = AVSpeechSynthesizer() // Object that will take in a speechUtterance object to speak
-            let speechUtterance: AVSpeechUtterance = AVSpeechUtterance(string: "Welcome to your Journal") // Speech Utterance object that had the phrase to speak
-            speechUtterance.rate = AVSpeechUtteranceMaximumSpeechRate / 1.8 // Can adjust speed, larger division number the slower it is
-            speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-US") // Ensure it is in US English
-            speechSynthesizer.speak(speechUtterance) // pass object to execute speech
-            dismiss(animated: true, completion: nil) // transition into next screen
+//            // https://nshipster.com/avspeechsynthesizer/
+//            let speechSynthesizer = AVSpeechSynthesizer() // Object that will take in a speechUtterance object to speak
+//            let speechUtterance: AVSpeechUtterance = AVSpeechUtterance(string: "Welcome to your Journal") // Speech Utterance object that had the phrase to speak
+//            speechUtterance.rate = AVSpeechUtteranceMaximumSpeechRate / 1.8 // Can adjust speed, larger division number the slower it is
+//            speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-US") // Ensure it is in US English
+//            // causes an warning
+//            speechSynthesizer.speak(speechUtterance) // pass object to execute speech
+//            dismiss(animated: true, completion: nil) // transition into next screen
         }
     }
     

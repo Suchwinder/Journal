@@ -6,12 +6,24 @@
 //
 
 import UIKit
+import AVFoundation
 
 class AddJournalViewController: UIViewController {
     @IBOutlet weak var inputLabel: UITextField!
     
+    // This is to satisfy the audio through AV
+    // https://developer.apple.com/documentation/avfoundation/avspeechsynthesizer
     override func viewDidLoad() {
         super.viewDidLoad()
+        // https://nshipster.com/avspeechsynthesizer/
+//        let speechSynthesizer = AVSpeechSynthesizer() // Object that will take in a speechUtterance object to speak
+        let speechSynthesizer = AVSpeechSynthesizer()
+        let speechUtterance = AVSpeechUtterance(string: "How are you feeling today?") // Speech Utterance object that had the phrase to speak
+        speechUtterance.rate = AVSpeechUtteranceMaximumSpeechRate / 1.8 // Can adjust speed, larger division number the slower it is
+        speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-US") // Ensure it is in US English
+        // causes an warning
+        speechSynthesizer.speak(speechUtterance) // pass object to execute speech
+//        dismiss(animated: true, completion: nil) // transition into next screen
 
         // Do any additional setup after loading the view.
     }

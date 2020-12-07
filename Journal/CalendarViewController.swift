@@ -44,6 +44,12 @@ class CalendarViewController: UIViewController, FSCalendarDelegate {
         updateLabel()
     }
     
+    @IBAction func allMood(_ sender: Any) {
+        currentMood="N/A"
+        currentDate="MM-dd-YYYY"
+        updateLabel()
+    }
+    
     // MARK:- Calendar Functionality
     
     /*
@@ -55,6 +61,8 @@ class CalendarViewController: UIViewController, FSCalendarDelegate {
         // one issue is if change made and date already selected need to
         // click off and on again
         moodsArr = PersistencyHelper.loadMoodItems()
+        moodsDict.removeAll()
+        
         for moods in moodsArr {
             moodsDict[moods.date] = moods.mood
         }

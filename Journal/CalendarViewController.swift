@@ -86,7 +86,6 @@ class CalendarViewController: UIViewController, FSCalendarDelegate {
     // MARK:- Sign Out
     // Currently closes screen, fast way to have user "log out"
     @IBAction func signout () {
-//        dismiss(animated:true, completion: nil)
         // simple session object with limited default behavior
         let session = URLSession.shared
         // provides the resource that we will be making get request to
@@ -96,17 +95,6 @@ class CalendarViewController: UIViewController, FSCalendarDelegate {
         var request = URLRequest(url: url)
         request.httpMethod = "DELETE"
 
-//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
-        // set dictionary with contents we will pass
-//        let json = [
-//            "username": username.text,
-//            "password": password.text
-//        ]
-
-        // convert to json
-//        let jsonData = try! JSONSerialization.data(withJSONObject: json, options: [])
-
         // set up closure to execute functions and store its results
         let task = session.dataTask(with: request) {data, response, error in
             if let httpResponse = response as? HTTPURLResponse,
@@ -115,20 +103,9 @@ class CalendarViewController: UIViewController, FSCalendarDelegate {
 //                    self.handleSignIn()
                     self.dismiss(animated:true, completion: nil)
                 }
-            } 
+            }
             else {
                 print("No one to log out")
-//                DispatchQueue.main.async {
-//                    self.username.text = "";
-//                    self.password.text = "";
-//                    let alert = UIAlertController(title: "Invalid Entry",
-//                                                  message: "User Already Exists",
-//                                                  preferredStyle: .alert)
-//                    let action = UIAlertAction(title: "Confirm", style: .default, handler: nil)
-//
-//                    alert.addAction(action)
-//                    self.present(alert, animated: true, completion: nil)
-//                }
                 return
             }
         }

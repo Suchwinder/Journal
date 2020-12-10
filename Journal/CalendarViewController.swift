@@ -100,7 +100,6 @@ class CalendarViewController: UIViewController, FSCalendarDelegate {
             if let httpResponse = response as? HTTPURLResponse,
                (200...299).contains(httpResponse.statusCode) {
                 DispatchQueue.main.async {
-//                    self.handleSignIn()
                     self.dismiss(animated:true, completion: nil)
                 }
             }

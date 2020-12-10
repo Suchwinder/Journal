@@ -29,7 +29,6 @@
                                 <connections>
                                     <action selector="handleSignIn" destination="BYZ-38-t0r" eventType="touchUpInside" id="fwE-VY-WL4"/>
                                     <action selector="pulseButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DOx-rK-Xty"/>
-                                    <segue destination="Gxh-ph-Yr0" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="nVQ-6N-AiO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJI-gP-dZX">
@@ -38,7 +37,6 @@
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
                                     <action selector="handleSignUp" destination="BYZ-38-t0r" eventType="touchUpInside" id="YcL-l9-aur"/>
-                                    <segue destination="Gxh-ph-Yr0" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="ZZ9-Ft-Ap2"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cbR-s8-vR7">
@@ -413,7 +411,7 @@
         <!--Navigation Controller-->
         <scene sceneID="bgx-lq-Acp">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Gxh-ph-Yr0" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="JournalViewController" automaticallyAdjustsScrollViewInsets="NO" id="Gxh-ph-Yr0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mKl-xv-WAG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -429,9 +427,6 @@
             <point key="canvasLocation" x="628.98550724637687" y="67.663043478260875"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="ZZ9-Ft-Ap2"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

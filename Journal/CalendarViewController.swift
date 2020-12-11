@@ -57,7 +57,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate {
      for collecting and checking moods at a particular day
      */
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        // need to do updates on each click to make sure atest version exists
+        // need to do updates on each click to make sure latest version exists
         // one issue is if change made and date already selected need to
         // click off and on again
         moodsArr = PersistencyHelper.loadMoodItems()
@@ -84,9 +84,31 @@ class CalendarViewController: UIViewController, FSCalendarDelegate {
     }
     
     // MARK:- Sign Out
-    // Currently closes screen, fast way to have user "log out"
     @IBAction func signout () {
-        dismiss(animated:true, completion: nil)
+        // simple session object with limited default behavior
+        let session = URLSession.shared
+        // provides the resource that we will be making get request to
+        let url = URL(string: "https://ios-journal.herokuapp.com/api/user/logout")!
+
+        // make it post request to pass data as parameters
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+
+        // set up closure to execute functions and store its results
+        let task = session.dataTask(with: request) {data, response, error in
+            if let httpResponse = response as? HTTPURLResponse,
+               (200...299).contains(httpResponse.statusCode) {
+                DispatchQueue.main.async {
+                    self.dismiss(animated:true, completion: nil)
+                }
+            }
+            else {
+                print("No one to log out")
+                return
+            }
+        }
+
+        task.resume() // executing request
     }
 
     /*

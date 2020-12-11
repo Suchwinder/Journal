@@ -61,13 +61,6 @@ class AllMoodsViewController: UITableViewController, EditMoodViewControllerDeleg
     }
     
     // MARK:- Table View Delegate
-    // at this moment not used, it is for deselecting a row
-    // this is a delegate method
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//    }
-//
-    // to delete contents, not implemented or will be used, there for future purposes potentially
     override func tableView(
         _ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath){
         moodsArr.remove(at: indexPath.row)

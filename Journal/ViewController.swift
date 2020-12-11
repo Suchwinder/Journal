@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     }
     
     // MARK:- Authentication
-    // Helper function to ensure fields arent empty when trying to use app
+    // Helper function to ensure fields aren't empty when trying to use app
     func checkFields() -> Bool {
         if username.text == "" || password.text == "" {
             let alert = UIAlertController(title: "Invalid Entry",
@@ -57,8 +57,7 @@ class ViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    // This is to satisfy the audio through AV
-    // https://developer.apple.com/documentation/avfoundation/avspeechsynthesizer
+    // this function is the actual sign in
     @IBAction func handleSignIn () {
         if checkFields() {
             // simple session object with limited default behavior
@@ -108,6 +107,8 @@ class ViewController: UIViewController {
         }
     }
     
+    // Handle sign up
+    // check if user exists, if so alert, else create and sign in
     @IBAction func handleSignUp () {
         if checkFields() {
             
@@ -155,8 +156,6 @@ class ViewController: UIViewController {
                 }
             }
             task.resume() // executing request
-            
         }
     }
 }
-

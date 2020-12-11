@@ -8,7 +8,7 @@
 import UIKit
 
 // create own protocol to update textfield when needed
-// will implement inside the class
+// will implement inside the class using it
 protocol EditMoodViewControllerDelegate: class {
   func editMoodViewControllerDidCancel(
     _ controller: EditMoodViewController)
@@ -18,9 +18,11 @@ protocol EditMoodViewControllerDelegate: class {
 }
 
 class EditMoodViewController: UITableViewController, UITextFieldDelegate {
-
+    
+    // outlets for the edited text and compeletion of edit
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var doneBarButton: UIBarButtonItem!
+    // unwrap the delegate
     weak var delegate: EditMoodViewControllerDelegate?
     var moodItem: MoodItem!
 
@@ -38,6 +40,7 @@ class EditMoodViewController: UITableViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         // giving control focus onto the textfield on screen render
         super.viewWillAppear(animated)
+        // have text field selected on load
         textField.becomeFirstResponder()
     }
 
@@ -53,11 +56,12 @@ class EditMoodViewController: UITableViewController, UITextFieldDelegate {
 //    }
     
     // MARK: - Table View Delegates
+    // remove selection effect
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         return nil
     }
     
-    // MARK:- Actions
+    // MARK: - Actions
     @IBAction func cancel() {
         delegate?.editMoodViewControllerDidCancel(self)
     }
@@ -68,7 +72,6 @@ class EditMoodViewController: UITableViewController, UITextFieldDelegate {
     }
     
     // MARK: - Text Field Delegates
-    
     // enabling done button only if
     // text field isn't empty
     func textField(_ textField: UITextField,
@@ -138,5 +141,4 @@ class EditMoodViewController: UITableViewController, UITextFieldDelegate {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

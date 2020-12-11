@@ -89,11 +89,6 @@ class AddJournalViewController: UIViewController {
         // update file
         PersistencyHelper.saveMoods(allMoods)
     }
-    /*
-     Notes:
-     1. Update the today modd if already exists if not add it to the
-        dictionary of moods and dates
-     */
     
     // MARK:- Cancel
     // cancel the entry if needed

@@ -57,7 +57,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate {
      for collecting and checking moods at a particular day
      */
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        // need to do updates on each click to make sure atest version exists
+        // need to do updates on each click to make sure latest version exists
         // one issue is if change made and date already selected need to
         // click off and on again
         moodsArr = PersistencyHelper.loadMoodItems()
@@ -84,7 +84,6 @@ class CalendarViewController: UIViewController, FSCalendarDelegate {
     }
     
     // MARK:- Sign Out
-    // Currently closes screen, fast way to have user "log out"
     @IBAction func signout () {
         // simple session object with limited default behavior
         let session = URLSession.shared
